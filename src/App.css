@@ -1,38 +1,207 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+/* .carosel1 {
+  width: 60vw;
+  height: 70vh;
+} */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* .car-container {
+  width: 52vw;
+  margin: auto;
 }
-
-.App-header {
-  background-color: #282c34;
+.colored-section {
+  background-color: #ff4c68;
+  color: #fff;
+}
+.testimonials {
+  margin: 0;
+} */
+.cph {
+  margin: 0;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  font-family: "Inter", sans-serif;
+  background-color: whitesmoke;
+}
+
+.contacts {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.contact-card {
+  flex-basis: 225px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 13px;
+  padding-bottom: 20px;
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.contact-card > img {
+  width: 100%;
+  height: auto;
+  align-self: center;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.contact-card > h3 {
+  font-weight: 700;
+  font-size: 18px;
+}
+.info-group {
+  display: flex;
+  align-items: center;
+}
+
+.info-group > img {
+  height: 11px;
+  margin-right: 8px;
+}
+
+.info-group > p {
+  margin-block: 3px;
+  font-size: 12px;
+  color: #2b283a;
+}
+@media (max-width: 998px) {
+  .contact-card {
+    flex-basis: 50%;
+    /* display: block; */
   }
 }
+.card-txt {
+  margin: auto;
+  text-align: center;
+}
+.container-card {
+  display: block;
+}
+/**********************************************/
+
+.whole-bg {
+  background-color: linear-gradient(#b6edf9, white);
+}
+
+#footer {
+  background-color: #ebdddd;
+  color: black;
+  text-align: center;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem; 
+}
+#foothead {
+  margin: auto;
+  height: 3vh;
+}
+#footer-container{
+  /* position: absolute; */
+  bottom: 0px;
+}
+/****************************************/
+.head-cont {
+  display: block;
+}
+
+#card {
+  margin-top: 22rem;
+  padding-bottom: 5rem;
+}
+.info container {
+  height: fit-content;
+}
+
+/**********************************************/
+.container {
+  display: flex;
+  margin: 0;
+  width: 100vw;
+  padding-left: 0;
+}
+main {
+  width: 100%;
+  padding: 20px;
+}
+.sidebar {
+  background: #b6edf9;
+  color: black;
+  height: 100vh;
+  width: 200px;
+  transition: all 0.5s;
+}
+.top_section {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.logo {
+  font-size: 30px;
+}
+.bars {
+  display: flex;
+  font-size: 25px;
+  margin-left: 50px;
+}
+.link {
+  display: flex;
+  color: rgb(120, 113, 113);
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.link:hover {
+  background: lightskyblue;
+  color: #000;
+  transition: all 0.5s;
+}
+/* .active {
+  background: lightskyblue;
+  color: #000;
+} */
+.icon,
+.link_text {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/****************************************************/
+carousel-item.active {
+  background: none;
+}
+.dbcont {
+  font-family: "Laila", sans-serif;
+}
+.report-container {
+  display: flex;
+  border-radius: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 85vw;
+  background-color: #7378fd;
+}
+
+.name-container > p {
+  /* color: #fff; */
+  color: #000;
+  /* background-color: #7378FD  */
+}
+/* Navbar */

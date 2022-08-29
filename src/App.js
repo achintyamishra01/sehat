@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+//need to install react-router-hash-link
+import "./App.css";
+import "./testimonial.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Foot from "./Components/Foot";
+import Dashboard from "./pages/Dashboard.js";
+import About from "./pages/About.js";
+import Analytics from "./pages/Analytics.js";
+import Comment from "./pages/Comment.js";
+import Product from "./pages/Product.js";
+import ProductList from "./pages/ProductList.js";
+import Homepage from "./pages/HomePage";
 
-function App() {
+import Login from "./Components/Login";
+
+import Sign from "./pages/Sign";
+// import Header from "./Components/Header";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+
+          <Route path="/Login" element={<Login />} />
+
+          <Route path="/Sign" element={<Sign />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/comment" element={<Comment />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/productList" element={<ProductList />} />
+        </Routes>
+        
+        <Foot />
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
