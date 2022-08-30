@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "./side.css";
+import { useNavigate } from "react-router-dom";
+import "../CSS/side.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   FaTh,
   FaBars,
@@ -12,6 +15,23 @@ import {
 import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ children }) => {
+  const navigate=useNavigate();
+  const Logout=()=>{
+    toast.success('Logging out..', {
+      position: "top-left",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+      localStorage.removeItem("email");
+      setTimeout(() => {
+        navigate("/")
+      }, 2000);
+    
+  }
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
@@ -40,13 +60,21 @@ const Sidebar = ({ children }) => {
       name: "Product",
       icon: <FaShoppingBag />,
     },
-    {
-      path: "/",
-      name: "Sign-Out",
-      icon: <FaSignOutAlt />,
-    },
+  
   ];
   return (
+    <>
+    <ToastContainer
+                position="top-left"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
     <div className="container">
       <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
         <div className="top_section">
@@ -62,7 +90,7 @@ const Sidebar = ({ children }) => {
             to={item.path}
             key={index}
             className="link"
-            activeclassName="active"
+            activeclassname="active"
           >
             <div className="icon">{item.icon}</div>
             <div
@@ -73,10 +101,21 @@ const Sidebar = ({ children }) => {
             </div>
           </NavLink>
         ))}
+        
+        {/* when sidebar is opening icon and signout are not together */}
+        <div className="icon link" >{<FaSignOutAlt onClick={Logout} style={{cursor:"pointer"}} />}</div>
+            <div
+              style={{ display: isOpen ? "block" : "none" ,height:"80px"}}
+              className="link_text link"   
+            >
+             <span  onClick={Logout} style={{cursor:"pointer"}} >Sign-out</span> 
+            </div>
       </div>
       <main>{children}</main>
     </div>
+    </>
   );
 };
 
 export default Sidebar;
+

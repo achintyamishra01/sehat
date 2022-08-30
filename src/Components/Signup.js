@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./Signup.css";
+import "../CSS/Signup.css";
 import { Link } from "react-router-dom";
 import logo from "../images/Rectangle 1.png";
 

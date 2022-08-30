@@ -13,15 +13,15 @@ router.post('/signin',async(req,res)=>{
     if(person){
         const checkPassword = await bcrypt.compare(req.body.password,person.password);
         if(checkPassword){
-            res.status(200).json({success:"Successfully Logged In"});
+            res.status(200).json({success:true});
         }
         else{
-            res.status(400).json({error:"Invalid password"});
+            res.status(200).json({success:false,error:"Email or password does not match"});
         }
     }
     
     else{
-        res.status(200).json({error:"User does not exist"});
+        res.status(200).json({success:false,error:"User does not exist"});
     }
 
 });

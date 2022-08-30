@@ -6,7 +6,7 @@ export default function Cards() {
       <br />
       <br />
       <div className="container-card">
-        <div className="contacts" b>
+        <div className="contacts"   >
           <div className="contact-card">
             <img src={require("../images/Feat1.png")} alt="" />
             <h3 className="card-txt">

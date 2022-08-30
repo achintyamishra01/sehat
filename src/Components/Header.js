@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "../CSS/Header.css" 
 import { Link } from "react-router-dom";
 // import { Container, Nav } from "react-bootstrap";
 import logo from "../images/Healthtrack logo.png";
@@ -40,7 +40,7 @@ export default function Header() {
             </li>
             <li>
               <a className="nav-link" href="/Log">
-                Login
+              
               </a>
             </li>
             <li>
@@ -48,7 +48,7 @@ export default function Header() {
                 Join us
               </a>
             </li>
-          </ul>
+          </ul>      
         </div>
       </nav>
       <div className="info container" id="dc">

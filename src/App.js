@@ -1,5 +1,5 @@
-import React from "react";
-//need to install react-router-hash-link
+import React from 'react'
+
 import "./App.css";
 import "./testimonial.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -18,9 +18,17 @@ import Sign from "./pages/Sign";
 // import Header from "./Components/Header";
 
 const App = () => {
+  
+
+
+
+  
   return (
     <>
+    
+     
       <BrowserRouter>
+    
         <Routes>
           <Route path="/" element={<Homepage />} />
 

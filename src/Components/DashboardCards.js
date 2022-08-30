@@ -29,7 +29,7 @@ export default function DashboardCards() {
         <br />
         <br />
         <div className="container-card">
-          <div className="contacts" b>
+          <div className="contacts" >
             <div className="contact-card">
               <img src={require("../images/Feat3.png")} alt="" />
               <h3 className="card-txt" style={{ textAlign: "center" }}>

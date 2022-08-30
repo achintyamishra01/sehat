@@ -1,16 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import "./Login.css";
+import "../CSS/Login.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // import { Link } from 'react-router-dom'
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../images/Healthtrack logo.png";
 
 export default function Login() {
 
-
+    const navigate=useNavigate();
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
 
@@ -20,7 +20,7 @@ export default function Login() {
 
         const data = { email, password };
         if(email.length===0 || password.length===0){
-            toast.error('Check credentials once again', {
+            toast.error('Email or password cannot be blank', {
                 position: "top-left",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -41,20 +41,33 @@ export default function Login() {
         })
 
         const check = await res.json();
-        console.log(check.error);
+       
 
-        if (res.status === 200) {
-            // localStorage.setItem("email",email)
-            window.location.href = '/Dashboard';
-            // alert("Sign In Completed");
+        if (check.success) {
+            localStorage.setItem("email",email)
             setemail("");
             setpassword("");
+            toast.success('Successfully logged in', {
+                position: "top-left",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+                setTimeout(() => {
+                    navigate("/Dashboard");
+                }, 3000);
+            
+            // alert("Sign In Completed");
+            
 
         }
-        else if (check.error === "User does not exist") {
+        else if (!check.success ) {
 
             
-            toast.error('User does not exist', {
+            toast.error(check.error, {
                 position: "top-left",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -67,14 +80,7 @@ export default function Login() {
             setpassword("");
 
         }
-        else if (check.error === "Invalid password") {
-
-            alert("Invalid password")
-            setemail("");
-            setpassword("");
-
-
-        }
+        
     }
 
 
@@ -99,18 +105,18 @@ export default function Login() {
                 draggable
                 pauseOnHover
             />
-            <div className="text-center" >
+            <div className="text-center" style={{minHeight:"100vh"}} >
 
                 <main className="form-signin w-100 m-auto">
                     <form method='POST' >
                         <img className="mb-1" src={logo} alt="" width="240" height="140" />
 
                         <div className="form-floating">
-                            <input type="email" className="form-control" value={email} id='email' name='email' placeholder="name@example.com" onChange={onChange} autoComplete='off' />
+                            <input type="email" className="form-control" value={email} id='email' name='email' placeholder="name@example.com" onChange={onChange} autoComplete='off' required/>
                             <label htmlFor="floatingInput">Email address</label>
                         </div>
                         <div className="form-floating">
-                            <input type="password" className="form-control" value={password} id='password' name='password' placeholder="Password" onChange={onChange} />
+                            <input type="password" className="form-control" value={password} id='password' name='password' placeholder="Password" onChange={onChange}  required/>
                             <label htmlFor="floatingPassword">Password</label>
                         </div>
                         <button className="w-100 btn btn-lg btn-dark" onClick={handleClick}>Sign in</button>
