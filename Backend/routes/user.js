@@ -31,6 +31,8 @@ router.post('/addGraph',(req,res)=>{
     var date = req.body.date;
     var sugar=req.body.sugar;
     var emailFinding = req.body.email;
+    if(blood>120 || blood<=0){res.status(200).json({success:false,error:"enter valid value"})}
+    if(sugar>220 || sugar<=0){res.status(200).json({success:false,error:"enter valid value"})}
     user.findOne({email:`${emailFinding}`},async(err,item)=>{
         if(err){
             console.log(err);
