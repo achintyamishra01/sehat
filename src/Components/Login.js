@@ -29,7 +29,7 @@ export default function Login() {
                 draggable: true,
                 progress: undefined,
                 });
-                return 
+                return  
         }
         const res = await fetch('/api/signin', {
             method: "POST",
@@ -39,7 +39,7 @@ export default function Login() {
             },
             body: JSON.stringify(data)
         })
-
+        console.log(res.status)
         const check = await res.json();
        
 

@@ -3,17 +3,17 @@ const router = express.Router();
 const user = require('../userschema');
 const bcrypt = require('bcrypt');
 
-var email = "";
-
+// var email = "";
+ 
 router.post('/signin',async(req,res)=>{
     const checkEmail = req.body.email;
-    email=checkEmail;
+    // email=checkEmail;
     const person = await user.findOne({email:checkEmail});
 
-    if(person){
+    if(person){ 
         const checkPassword = await bcrypt.compare(req.body.password,person.password);
         if(checkPassword){
-            res.status(200).json({success:true});
+            res.status(200).json({success:true}); 
         }
         else{
             res.status(200).json({success:false,error:"Email or password does not match"});
@@ -29,25 +29,27 @@ router.post('/signin',async(req,res)=>{
 router.post('/addGraph',(req,res)=>{
     var blood = req.body.blood;
     var date = req.body.date;
-    var emailFinding = email;
+    var sugar=req.body.sugar;
+    var emailFinding = req.body.email;
     user.findOne({email:`${emailFinding}`},async(err,item)=>{
         if(err){
             console.log(err);
         }
         else{
             console.log(item);
-            item.dataset.push({"blood":blood,"date":date});
+            item.dataset.push({"blood":blood,"date":date,"sugar":sugar});
             await item.save();
-            res.send(email);
+            res.status(200).json({success:true});
 
         }
     })
 });
 
-router.get('/fetchGraph',async(req,res)=>{
-    var emailFinding1 = email;
+router.post('/fetchGraph',async(req,res)=>{
+    console.log(req.body.email)
+    var emailFinding1 = req.body.email;
     const graph = await user.findOne({email:`${emailFinding1}`});
-    res.send(graph.dataset);
+    res.status(200).json({data:graph.dataset});
 });
 
 
@@ -61,7 +63,7 @@ router.post('/register',async (req,res)=>{
             "email":req.body.email,
             "password":hash,
         });
-        // res.send(aadmi);
+        // res.send(aadmi); 
         // await person.save(); 
         return res.status(200).json("done");
     }

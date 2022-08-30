@@ -15,6 +15,9 @@ const GraphSchema = new mongoose.Schema({
     },
     dataset:[
         {
+            sugar:{
+                type:Number
+            },
             blood:{
                 type:Number
             },

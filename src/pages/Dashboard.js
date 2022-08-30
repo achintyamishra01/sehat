@@ -5,20 +5,26 @@ import { useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
 
 const Dashboard = () => {
+  
   const navigate=useNavigate();
   useEffect(() => {
     if(!localStorage.getItem("email")){
       
       navigate("/Login")
-     
+     return
     }
-  
+ 
   // eslint-disable-next-line
   }, [])
+
+  
+
+
+
   return (
     <div className="pagebg">
       <Sidebar>
-        <DashboardCards>
+        <DashboardCards >
           <h1 className="pagebg">Dashboard page</h1>
         </DashboardCards>
       </Sidebar>
