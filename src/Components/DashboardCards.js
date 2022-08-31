@@ -1,11 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+
 import Doctor from "../images/doctor vector.png";
 import { useEffect,useState } from "react";
 export default function DashboardCards() {
 const [ans, setans] = useState([])
+const [name, setname] = useState("")
+
 
   useEffect(() => {
+    
     latestData();
 }, [])
    
@@ -24,19 +27,28 @@ const [ans, setans] = useState([])
       body: JSON.stringify(data)
   })
   const b=await res.json();
-  
+  setname(b.user)
+  b.data.sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
+  });
   setans(b.data);
+  
+  
+
+ 
+  
+  
  
   }
 
-  let { username } = useParams();
+  // let { username } = useParams();
   return (
     <>
    
       <div className="dashboard-container" id="dbcont">
         <div className="report-container">
           <div className="name-container">
-            <p style={{ fontSize: 30 }}>Welcome {username}</p>
+            <p style={{ fontSize: 30 }}>Welcome {`${name}`}</p>
             <p style={{ fontSize: 15 }}>
               Check your reports with us.
               <br />
@@ -64,8 +76,8 @@ const [ans, setans] = useState([])
                 Blood Pressure
                 <br />
                 <br/>
-                {ans.length===0?"fetching":`${ans[0].blood}`}
-                {/* {`${ans[0].blood}`} */}
+                
+                {ans.length===0?"fetching":`${ans[0].blood} as on ${ans[0].date}`}
               </h3>
             </div>
 
@@ -75,7 +87,7 @@ const [ans, setans] = useState([])
                 Glucose Level
                 <br />
                 <br />
-                {ans.length===0?"fetching":`${ans[ans.length-1].sugar}`}
+                {ans.length===0?"fetching":`${ans[0].sugar} as on ${ans[0].date}`}
               </h3>
             </div>
           </div>

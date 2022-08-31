@@ -13,7 +13,7 @@ router.post('/signin',async(req,res)=>{
     if(person){ 
         const checkPassword = await bcrypt.compare(req.body.password,person.password);
         if(checkPassword){
-            res.status(200).json({success:true}); 
+            res.status(200).json({success:true }); 
         }
         else{
             res.status(200).json({success:false,error:"Email or password does not match"});
@@ -52,7 +52,7 @@ router.post('/fetchGraph',async(req,res)=>{
     
     var emailFinding1 = req.body.email;
     const graph = await user.findOne({email:`${emailFinding1}`});
-    res.status(200).json({data:graph.dataset});
+    res.status(200).json({data:graph.dataset,user:graph.name});
 });
 
 
