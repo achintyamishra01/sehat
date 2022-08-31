@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
 import Chart from 'chart.js'
 const Analytics = () => {
+
   const navigate=useNavigate();
   useEffect(() => {
     if(!localStorage.getItem("email")){

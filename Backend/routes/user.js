@@ -68,10 +68,10 @@ router.post('/register',async (req,res)=>{
         });
         // res.send(aadmi); 
         // await person.save(); 
-        return res.status(200).json("done");
+        return res.status(200).json({success:true});
     }
     else{
-        return res.status(400).json({error:"username already exist"});
+        return res.status(200).json({success:false,error:"username already exist"});
         // res.send(aadmi);
     }
 });

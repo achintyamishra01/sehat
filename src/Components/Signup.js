@@ -3,9 +3,11 @@ import { useState } from "react";
 import "../CSS/Signup.css";
 import { Link } from "react-router-dom";
 import logo from "../images/Rectangle 1.png";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 export default function Signup() {
-
+    const navigate=useNavigate();
 
     const [name, setname] = useState("")
     const [email, setemail] = useState("")
@@ -17,7 +19,16 @@ export default function Signup() {
 
         
         if(name==="" || email==="" || password==="" || cpassword===""){
-            alert("Missing User Credentials"); 
+            toast.error('Credentials not proper', {
+                position: "top-left",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+                return  
         }
         else if (password !== cpassword) {
 
@@ -43,26 +54,42 @@ export default function Signup() {
             const check = await res.json();
             
 
-            if (res.status === 200) {
-                alert("user successfully registered");
+            if (check.success) {
+                toast.success('Thanks ,for registering with us', {
+                    position: "top-left",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+                    
                 setname("");
                 setpassword("");
                 setcpassword("");
                 setemail("");
-            }
-            else if(check.error === "username already exist"){
-                alert("username already exist");
-                setname("");
-                setpassword("");
-                setcpassword("");
-                setemail("");
+
+                setTimeout(() => {
+                    navigate("/Login")
+                }, 3000);
             }
             else {
+                toast.error(check.error, {
+                    position: "top-left",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
                 setname("");
                 setpassword("");
                 setcpassword("");
                 setemail("");
             }
+            
         }
     }
 
@@ -80,6 +107,19 @@ export default function Signup() {
 
 
   return (
+    <>
+    <ToastContainer
+                position="top-left"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+    
     <div className="text-center">
 
             <main className="form-signin w-100 m-auto">
@@ -113,5 +153,6 @@ export default function Signup() {
 
 
         </div>
+        </>
   );
 }
