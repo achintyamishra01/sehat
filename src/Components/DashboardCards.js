@@ -28,7 +28,7 @@ const [ans, setans] = useState([])
   setans(b.data);
  
   }
-console.log(ans)
+
   let { username } = useParams();
   return (
     <>

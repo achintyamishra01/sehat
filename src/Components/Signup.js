@@ -15,8 +15,7 @@ export default function Signup() {
     const handleClick = async (e) => {
         e.preventDefault();
 
-        // console.log(password);
-        // console.log(cpassword);
+        
         if(name==="" || email==="" || password==="" || cpassword===""){
             alert("Missing User Credentials"); 
         }
@@ -29,7 +28,7 @@ export default function Signup() {
         else {
             const data = { name, email, password};
 
-            // console.log(data);
+            
             
             const res = await fetch('api/register', {
                 method: "POST",
@@ -42,7 +41,7 @@ export default function Signup() {
             
             
             const check = await res.json();
-            console.log(check); 
+            
 
             if (res.status === 200) {
                 alert("user successfully registered");

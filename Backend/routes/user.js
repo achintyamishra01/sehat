@@ -31,24 +31,25 @@ router.post('/addGraph',(req,res)=>{
     var date = req.body.date;
     var sugar=req.body.sugar;
     var emailFinding = req.body.email;
-    if(blood>120 || blood<=0){res.status(200).json({success:false,error:"enter valid value"})}
-    if(sugar>220 || sugar<=0){res.status(200).json({success:false,error:"enter valid value"})}
+    if(blood>120 || blood<=0|| sugar>220 || sugar<=0){res.status(200).json({success:false,error:"enter valid value"})  }
+   else{
     user.findOne({email:`${emailFinding}`},async(err,item)=>{
         if(err){
             console.log(err);
         }
         else{
-            console.log(item);
+           
             item.dataset.push({"blood":blood,"date":date,"sugar":sugar});
             await item.save();
             res.status(200).json({success:true});
 
         }
     })
+}
 });
 
 router.post('/fetchGraph',async(req,res)=>{
-    console.log(req.body.email)
+    
     var emailFinding1 = req.body.email;
     const graph = await user.findOne({email:`${emailFinding1}`});
     res.status(200).json({data:graph.dataset});

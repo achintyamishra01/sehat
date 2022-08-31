@@ -39,7 +39,7 @@ export default function Login() {
             },
             body: JSON.stringify(data)
         })
-        console.log(res.status)
+    
         const check = await res.json();
        
 

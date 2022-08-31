@@ -3,8 +3,19 @@ import Sidebar from "../Components/Sidebar";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 const About = () => {
+  const navigate=useNavigate();
+  useEffect(() => {
+    if(!localStorage.getItem("email")){
+      
+      navigate("/Login")
+     return
+    }
+ 
+  // eslint-disable-next-line
+  }, [])
   const [blood, setblood] = useState("")
   const [sugar, setsugar] = useState("")
   const handleChange=(e)=>{
@@ -29,7 +40,7 @@ const About = () => {
       },
       body: JSON.stringify(data)
   })
-  console.log(res.status)
+  
   const check = await res.json();
 if(!check.success){
 
