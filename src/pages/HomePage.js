@@ -75,14 +75,16 @@ function HomePage() {
               
              {!localStorage.getItem("email") ?<li>
                 <Link className="nav-link" to={"/Sign"}>
-                <button type="button" className="btn btn-primary btn-sm" style={{  background: "#8ab4f8",color:"black",borderColor:"aliceblue"}}>Sign Up</button>
+                {/* <button type="button" className="btn btn-primary btn-sm" style={{  background: "#8ab4f8",color:"black",borderColor:"aliceblue"}}>Sign Up</button> */}
+                Sign Up
                 </Link>
               </li>:  <Link className="nav-link" to={"/Dashboard"}>Dashboard</Link>}
               
               
               {/* changes are to made so the user can be logged out */}
               {localStorage.getItem("email")? <button type="button" className="btn btn-primary btn-sm"  onClick={Logout} style={{  background: "#8ab4f8",color:"black",borderColor:"aliceblue"}}>Sign out</button>:  <Link className="nav-link" to={"/Login"}>
-                <button type="button" className="btn btn-primary btn-sm"  style={{  background: "#8ab4f8",color:"black",borderColor:"aliceblue"}}>Sign in</button>
+                {/* <button type="button" className="btn btn-primary btn-sm"  style={{  background: "#8ab4f8",color:"black",borderColor:"aliceblue"}}>Sign in</button> */}
+                Sign in
                 
                 </Link>}
             </ul>

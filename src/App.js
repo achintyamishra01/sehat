@@ -36,10 +36,10 @@ const App = () => {
 
           <Route path="/Sign" element={<Sign />} />
           <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/data-entry" element={<About />} />
           <Route path="/comment" element={<Comment />} />
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/product" element={<Product />} />
+          {/* <Route path="/product" element={<Product />} /> */}
           <Route path="/productList" element={<ProductList />} />
         </Routes>
         
