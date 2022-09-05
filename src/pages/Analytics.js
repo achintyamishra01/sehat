@@ -12,9 +12,9 @@ const Analytics = () => {
       navigate("/Login")
      return
     }
-
+        const ysugar=[];
         const xlabels = [];
-        const ytemps = [];
+        const yblood = [];
         chartIt()
         async function chartIt() {
             
@@ -27,14 +27,23 @@ const Analytics = () => {
                 data: {
                     labels: xlabels,
                     datasets: [{
-                        label: 'blood report',
-                        data: ytemps,
+                        label: 'Blood report',
+                        data: yblood,
                         borderColor: [
-                            'rgba(255, 99, 132, 1)',
+                            'blue',
                         ],
                         borderWidth: 1,
 
-                    }]
+                    },
+                    {
+                        label: 'Glucose report',
+                        data: ysugar,
+                        borderColor: [
+                            'red',
+                        ],
+                        borderWidth: 1,
+                    }
+                ]
                 },
                 options: {
                     scales: {
@@ -82,11 +91,13 @@ const Analytics = () => {
            
 
             for (let i = 0; i < b.data.length; i++) {
-
+                
+                const sugar=b.data[i].sugar;
                 const blood = b.data[i].blood;
                 const date = b.data[i].date;
+                ysugar.push(sugar);
                 xlabels.push(date);
-                ytemps.push(blood);
+                yblood.push(blood);
 
             }
             

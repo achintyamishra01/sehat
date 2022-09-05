@@ -16,6 +16,16 @@ app.use(bodyParser.json());
 // app.use('/',require('./routes/graph'));
 app.use('/api/',require('./routes/user'));
 
+
+
+
+
+
+
+
+
+
+
 app.listen(4000,()=>{
     console.log("listening at port 4000");
 })
