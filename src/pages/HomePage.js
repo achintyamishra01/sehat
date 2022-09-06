@@ -1,19 +1,19 @@
 import React from "react";
 import Cards from "../Components/Cards";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import Testimonials from "../Components/Testimonials";
 import logo from "../images/Healthtrack logo.png";
 import assistant from "../images/meet the assistant photo.png";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import "../CSS/Header.css" 
+import "../CSS/Header.css";
 import { HashLink } from "react-router-hash-link";
 
 function HomePage() {
-  const Logout=()=>{
+  const Logout = () => {
     localStorage.removeItem("email");
-    toast.success('Logging out..', {
+    toast.success("Logging out..", {
       position: "top-left",
       autoClose: 1000,
       hideProgressBar: false,
@@ -21,30 +21,29 @@ function HomePage() {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      });
-      setTimeout(() => {
-        window.location.reload()
-      }, 2000);
-    
-  }
-  
+    });
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  };
+
   return (
     <div>
       <ToastContainer
-                position="top-left"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+        position="top-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="container-fluid header-component">
         <nav className="navbar navbar-expand-lg navbar-light ">
           <a href="/" className="navbar-brand">
-            <img src={logo} id="logo" alt="" ></img>
+            <img src={logo} id="logo" alt=""></img>
           </a>
           <button
             className="navbar-toggler"
@@ -72,19 +71,50 @@ function HomePage() {
                   About Us
                 </HashLink>
               </li>
-              
-             {!localStorage.getItem("email") ?<li>
-                <Link className="nav-link" to={"/Sign"}>
-                <button type="button" className="btn btn-primary btn-sm" style={{  background: "#8ab4f8",color:"black",borderColor:"aliceblue"}}>Sign Up</button>
+
+              {!localStorage.getItem("email") ? (
+                <li>
+                  <Link className="nav-link" to={"/Sign"}>
+                    <button
+                      type="button"
+                      className="btn btn-primary btn-sm"
+                      id="sup"
+                    >
+                      Sign Up
+                    </button>
+                  </Link>
+                </li>
+              ) : (
+                <Link className="nav-link" to={"/Dashboard"}>
+                  Dashboard
                 </Link>
-              </li>:  <Link className="nav-link" to={"/Dashboard"}>Dashboard</Link>}
-              
-              
+              )}
+
               {/* changes are to made so the user can be logged out */}
-              {localStorage.getItem("email")? <button type="button" className="btn btn-primary btn-sm"  onClick={Logout} style={{  background: "#8ab4f8",color:"black",borderColor:"aliceblue"}}>Sign out</button>:  <Link className="nav-link" to={"/Login"}>
-                <button type="button" className="btn btn-primary btn-sm"  style={{  background: "#8ab4f8",color:"black",borderColor:"aliceblue"}}>Sign in</button>
-                
-                </Link>}
+              {localStorage.getItem("email") ? (
+                <button
+                  type="button"
+                  className="btn btn-primary btn-sm"
+                  onClick={Logout}
+                  style={{
+                    background: "#8ab4f8",
+                    color: "black",
+                    borderColor: "aliceblue",
+                  }}
+                >
+                  Sign out
+                </button>
+              ) : (
+                <Link className="nav-link" to={"/Login"}>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    id="sin"
+                  >
+                    Sign in
+                  </button>
+                </Link>
+              )}
             </ul>
           </div>
         </nav>
@@ -103,7 +133,6 @@ function HomePage() {
       <Testimonials />
     </div>
   );
- 
 }
 
 export default HomePage;
