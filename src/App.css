@@ -98,8 +98,9 @@
 }
 
 #footer {
-  background-color: #ebdddd;
-  color: black;
+  /* background-color: #ebdddd; */
+  background-color: #1f4690;
+  color: white;
   text-align: center;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
