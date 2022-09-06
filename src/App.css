@@ -80,7 +80,7 @@
 }
 @media (max-width: 998px) {
   .contact-card {
-    flex-basis: 50%;
+    flex-basis: 40%;
     /* display: block; */
   }
 }
@@ -102,13 +102,13 @@
   color: black;
   text-align: center;
   padding-top: 2.5rem;
-  padding-bottom: 2.5rem; 
+  padding-bottom: 2.5rem;
 }
 #foothead {
   margin: auto;
   height: 3vh;
 }
-#footer-container{
+#footer-container {
   /* position: absolute; */
   bottom: 0px;
 }
