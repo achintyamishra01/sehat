@@ -80,7 +80,7 @@
 }
 @media (max-width: 998px) {
   .contact-card {
-    flex-basis: 40%;
+    flex-basis: 38%;
     /* display: block; */
   }
 }
