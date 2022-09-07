@@ -8,17 +8,17 @@ export default function Foot() {
         <section id="footlinks">
           <ul className="FootUL">
             <li>
-              <HashLink to="#card" className="FootLI">
+              <HashLink to="/#card" className="FootLI">
                 Features
               </HashLink>
             </li>
             <li>
-              <HashLink to="#Testimonial" className="FootLI">
+              <HashLink to="/#Testimonial" className="FootLI">
                 Reviews
               </HashLink>
             </li>
             <li>
-              <HashLink to="#card" className="FootLI">
+              <HashLink to="/#card" className="FootLI">
                 About Us
               </HashLink>
             </li>
