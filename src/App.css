@@ -226,6 +226,9 @@ carousel-item.active {
   color: white;
   text-decoration: none;
 }
+.FootLI:hover {
+  color: rgb(255, 234, 0);
+}
 @media (max-width: 998px) {
   .FootUL {
     /* flex-direction: column; */
