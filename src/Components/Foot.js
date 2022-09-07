@@ -28,8 +28,8 @@ export default function Foot() {
               </Link>
             </li>
             <li>
-              <Link to={"/Dashboard"} className="FootLI">
-                Dashboard
+              <Link to={"/"} className="FootLI">
+                HomePage
               </Link>
             </li>
             <li>
