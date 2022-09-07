@@ -71,6 +71,9 @@ function HomePage() {
                   About Us
                 </HashLink>
               </li>
+              <li>
+                <span id="sepnav">|</span>
+              </li>
 
               {!localStorage.getItem("email") ? (
                 <li>

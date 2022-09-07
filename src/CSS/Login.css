@@ -12,8 +12,7 @@ body {
 .text-center {
   display: flex;
   /* min-height: 100vh; */
-  background: linear-gradient(180deg, #B6EDF9 0%, rgba(182, 237, 249, 0) 100%);
-  ;
+  background: linear-gradient(180deg, #b6edf9 0%, rgba(182, 237, 249, 0) 100%);
   align-items: center;
   justify-content: center;
   /* padding-top: 40px; */

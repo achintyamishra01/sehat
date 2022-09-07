@@ -212,3 +212,26 @@ carousel-item.active {
 #sup {
   background: rgb(38, 97, 245);
 }
+#sepnav {
+  color: grey;
+}
+.FootUL {
+  /* padding-top: 0; */
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.FootLI {
+  color: white;
+  text-decoration: none;
+}
+@media (max-width: 998px) {
+  .FootUL {
+    /* flex-direction: column; */
+    flex-basis: 10%;
+  }
+  .FootUL li {
+    padding: 5px;
+  }
+}
