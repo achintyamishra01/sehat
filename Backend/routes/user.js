@@ -70,7 +70,7 @@ router.post("/register", async (req, res) => {
     return res.status(200).json({ success: true });
   } else {
     return res
-      .status(200)
+      .status(200)  
       .json({ success: false, error: "username already exist" });
     // res.send(aadmi);
   }
