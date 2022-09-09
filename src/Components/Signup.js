@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "../CSS/Signup.css";
 import { Link } from "react-router-dom";
@@ -6,7 +6,11 @@ import logo from "../images/Rectangle 1.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-export default function Signup() {
+export default function Signup(props) {
+  useEffect(() => {
+   props.stopLoading();
+  }, [])
+  
   const navigate = useNavigate();
 
   const [name, setname] = useState("");

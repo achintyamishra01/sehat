@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React,{useRef} from 'react'
+import LoadingBar from "react-top-loading-bar";
 import "./App.css";
 import "./testimonial.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -14,36 +14,67 @@ import Homepage from "./pages/HomePage";
 
 import Login from "./Components/Login";
 
-import Sign from "./pages/Sign";
+
+import Signup from './Components/Signup';
 // import Header from "./Components/Header";
 
 const App = () => {
+  const ref = useRef(null);
+
   
-
-
-
   
   return (
     <>
-    
+     <LoadingBar color="#f11946" height={4} ref={ref} />
      
       <BrowserRouter>
     
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Homepage startLoading={() => {
+            
+            ref.current.continuousStart();
+          }} stopLoading={() => {
+                
+            ref.current.complete();
+          }} />} />
 
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Login" element={<Login stopLoading={() => {
+                
+                ref.current.complete();
+              }}/>} />
 
-          <Route path="/Sign" element={<Sign />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/comment" element={<Comment />} />
-          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/Signup" element={<Signup stopLoading={() => {
+                
+                ref.current.complete();
+              }}/>} />
+          <Route path="/Dashboard" element={<Dashboard stopLoading={() => {
+                
+                ref.current.complete(); 
+              }} startLoading={() => {
+            
+                ref.current.continuousStart();
+              }}/>} />
+          <Route path="/about" element={<About stopLoading={() => {
+                
+                ref.current.complete(); 
+              }}/>} />
+          <Route path="/comment" element={<Comment stopLoading={() => {
+                
+                ref.current.complete(); 
+              }}/>} />
+          <Route path="/analytics" element={<Analytics stopLoading={() => {
+                
+                ref.current.complete(); 
+              }}/>} />
           <Route path="/product" element={<Product />} />
           <Route path="/productList" element={<ProductList />} />
+         
         </Routes>
-        
-        <Foot />
+    
+        <Foot startLoading={() => {
+            
+            ref.current.continuousStart();
+          }} />
       </BrowserRouter>
     </>
   );

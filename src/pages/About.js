@@ -5,9 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const About = () => {
+const About = (props) => {
   const navigate = useNavigate();
   useEffect(() => {
+    props.stopLoading()
     if (!localStorage.getItem("email")) {
       navigate("/Login");
       return;

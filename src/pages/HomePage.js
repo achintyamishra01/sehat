@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Cards from "../Components/Cards";
 import { Link } from "react-router-dom";
 import Testimonials from "../Components/Testimonials";
@@ -11,7 +11,11 @@ import "react-toastify/dist/ReactToastify.css";
 import "../CSS/Header.css";
 import { HashLink } from "react-router-hash-link";
 
-function HomePage() {
+function HomePage(props) {
+  useEffect(() => {
+    props.stopLoading();
+  }, [])
+  
   const Logout = () => {
     localStorage.removeItem("email");
     toast.success("Logging out..", {
@@ -78,18 +82,18 @@ function HomePage() {
 
               {!localStorage.getItem("email") ? (
                 <li>
-                  <Link className="nav-link" to={"/Sign"}>
+                  <Link className="nav-link" to={"/Signup"}>
                     <button
                       type="button"
                       className="btn btn-primary btn-sm"
-                      id="sup"
+                      id="sup" onClick={() => props.startLoading()}
                     >
                       Sign Up
                     </button>
                   </Link>
                 </li>
               ) : (
-                <Link className="nav-link" to={"/Dashboard"}>
+                <Link className="nav-link" to={"/Dashboard"} onClick={() => props.startLoading()}>
                   Dashboard
                 </Link>
               )}
@@ -104,7 +108,7 @@ function HomePage() {
                     background: "#8ab4f8",
                     color: "black",
                     borderColor: "aliceblue",
-                  }}
+                  }} 
                 >
                   Sign out
                 </button>
@@ -113,7 +117,7 @@ function HomePage() {
                   <button
                     type="button"
                     className="btn btn-primary btn-sm"
-                    id="sin"
+                    id="sin" onClick={() => props.startLoading()}
                   >
                     Sign in
                   </button>

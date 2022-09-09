@@ -3,7 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-export default function Foot() {
+export default function Foot(props) {
  
   
   const Logout = () => {
@@ -54,16 +54,16 @@ export default function Foot() {
               </HashLink>
             </li>
             {!localStorage.getItem("email")?<li>
-              <Link to={"/Sign"} className="FootLI">
+              <Link to={"/Signup"} className="FootLI" onClick={() => props.startLoading()}>
                 Sign Up
               </Link>
             </li>:<li>
-              <Link to={"/Dashboard"} className="FootLI">
+              <Link to={"/Dashboard"} className="FootLI" onClick={() => props.startLoading()}>
                 Dashboard
               </Link>
             </li>}
             <li>
-              <Link to={"/"} className="FootLI">
+              <Link to={"/"} className="FootLI" onClick={() => props.startLoading()}>
                 Homepage
               </Link>
             </li>
@@ -72,7 +72,7 @@ export default function Foot() {
                 Sign out
               </span>
             </li>:<li>
-              <Link to={"/Login"} className="FootLI">
+              <Link to={"/Login"} className="FootLI" onClick={() => props.startLoading()} >
                 Sign in
               </Link>
             </li>}

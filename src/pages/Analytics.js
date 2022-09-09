@@ -3,9 +3,10 @@ import Sidebar from "../Components/Sidebar";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Chart from "chart.js";
-const Analytics = () => {
+const Analytics = (props) => {
   const navigate = useNavigate();
   useEffect(() => {
+    props.stopLoading()
     if (!localStorage.getItem("email")) {
       navigate("/Login");
       return;
