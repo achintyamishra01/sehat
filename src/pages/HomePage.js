@@ -3,6 +3,7 @@ import Cards from "../Components/Cards";
 import { Link } from "react-router-dom";
 import Testimonials from "../Components/Testimonials";
 import logo from "../images/Healthtrack logo.png";
+import responsive_img from "../images/resp_im.png";
 import assistant from "../images/meet the assistant photo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -71,7 +72,7 @@ function HomePage() {
                   About Us
                 </HashLink>
               </li>
-              <li>
+              <li id="spna">
                 <span id="sepnav">|</span>
               </li>
 
@@ -128,6 +129,9 @@ function HomePage() {
           </div>
           <img src={assistant} className="img-fluid" alt="" width={800}></img>
         </div>
+        <section id="respimg">
+          <img src={responsive_img} alt="" id="reim" />
+        </section>
         <br />
         <br />
         <br />
