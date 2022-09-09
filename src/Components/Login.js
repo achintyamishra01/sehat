@@ -55,7 +55,9 @@ export default function Login() {
         progress: undefined,
       });
       setTimeout(() => {
-        navigate("/Dashboard");
+        let url = "http://localhost:3000/Dashboard";
+      window.location.href = url;
+        // navigate("/Dashboard");
       }, 3000);
 
       // alert("Sign In Completed");
