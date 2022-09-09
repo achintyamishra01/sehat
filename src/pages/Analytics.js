@@ -11,31 +11,37 @@ const Analytics = () => {
       return;
     }
     const ysugar = [];
+    
+    const ysystolic = [];
+    const ydiastolic = [];
     const xlabels = [];
-    const yblood = [];
     chartIt();
     async function chartIt() {
+
       await getData();
 
       const ctx = document.getElementById("chart").getContext("2d");
+      const ctx1=document.getElementById("chart1").getContext("2d")
 
       new Chart(ctx, {
         type: "line",
         data: {
           labels: xlabels,
           datasets: [
+          
             {
               label: "Systolic Blood Pressure(mmHg)",
-              data: yblood,
-              borderColor: ["blue"],
+              data: ysystolic,
+              borderColor: ["black"],
               borderWidth: 1,
             },
             {
-              label: "Systolic Blood Pressure(mmHg)",
-              data: ysugar,
-              borderColor: ["red"],
+              label: "Diastolic Blood Pressure(mmHg)",
+              data: ydiastolic,
+              borderColor: ["Orange"],
               borderWidth: 1,
             },
+            
           ],
         },
         options: {
@@ -52,6 +58,38 @@ const Analytics = () => {
           },
         },
       });
+
+      new Chart(ctx1, {
+        type: "line",
+        data: {
+          labels: xlabels,
+          datasets: [
+          
+            {
+              label: "Glucose",
+              data: ysugar,
+              borderColor: ["red"],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              ticks: {
+                type: "linear",
+
+                callback: function (value, index, ticks) {
+                  return value + "mg/dl";
+                },
+              },
+            },
+          },
+        },
+      });
+
+
+
     }
     async function getData() {
       const email = localStorage.getItem("email");
@@ -73,17 +111,20 @@ const Analytics = () => {
 
       for (let i = 0; i < b.data.length; i++) {
         const sugar = b.data[i].sugar;
-        const blood = b.data[i].blood;
+        const systolic = b.data[i].systolic;
+        const diastolic = b.data[i].diastolic;
         const date = b.data[i].date;
         ysugar.push(sugar);
-        xlabels.push(date);
-        yblood.push(blood);
+        xlabels.push(date); 
+        ysystolic.push(systolic);
+        ydiastolic.push(diastolic)
       }
     }
 
     // eslint-disable-next-line
   }, []);
   return (
+    <>
     <div className="pagebg">
       <Sidebar>
         <h1 className="pagebg">Analytics page</h1>
@@ -103,6 +144,24 @@ const Analytics = () => {
         </div>
       </Sidebar>
     </div>
+     
+       
+       <div>
+         <div className="container-fluid">
+           <div className="row">
+             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+               <canvas
+                 className="my-4 w-100"
+                 id="chart1"
+                 width="900"
+                 height="380"
+               ></canvas>
+             </main>
+           </div>
+         </div>
+       </div>
+    
+   </>
   );
 };
 
