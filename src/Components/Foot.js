@@ -1,8 +1,39 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
-export default function Foot() {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+export default function Foot(props) {
+ 
+  
+  const Logout = () => {
+    localStorage.removeItem("email");
+    toast.success("Logging out..", {
+      position: "top-left",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  };
   return (
+    <>
+    <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     <div id="footer-container">
       <section id="footer">
         <section id="footlinks">
@@ -22,21 +53,29 @@ export default function Foot() {
                 About Us
               </HashLink>
             </li>
-            <li>
-              <Link to={"/Sign"} className="FootLI">
+            {!localStorage.getItem("email")?<li>
+              <Link to={"/Signup"} className="FootLI" onClick={() => props.startLoading()}>
                 Sign Up
               </Link>
-            </li>
+            </li>:<li>
+              <Link to={"/Dashboard"} className="FootLI" onClick={() => props.startLoading()}>
+                Dashboard
+              </Link>
+            </li>}
             <li>
-              <Link to={"/"} className="FootLI">
+              <Link to={"/"} className="FootLI" onClick={() => props.startLoading()}>
                 Homepage
               </Link>
             </li>
-            <li>
-              <Link to={"/Login"} className="FootLI">
+            {localStorage.getItem("email")?<li>
+              <span onClick={Logout} className="FootLI">
+                Sign out
+              </span>
+            </li>:<li>
+              <Link to={"/Login"} className="FootLI" onClick={() => props.startLoading()} >
                 Sign in
               </Link>
-            </li>
+            </li>}
           </ul>
         </section>
         <h6 id="foothead">
@@ -44,5 +83,6 @@ export default function Foot() {
         </h6>
       </section>
     </div>
+    </>
   );
 }

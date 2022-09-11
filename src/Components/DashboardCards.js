@@ -77,7 +77,7 @@ const [name, setname] = useState("")
                 <br />
                 <br/>
                 
-                {ans.length===0?"fetching":`${ans[0].blood} as on ${ans[0].date}`}
+                {ans.length===0?"fetching":`${ans[0].systolic} as on ${ans[0].date}`}
               </h3>
             </div>
 

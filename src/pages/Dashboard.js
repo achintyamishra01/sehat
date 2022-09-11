@@ -4,10 +4,11 @@ import DashboardCards from "../Components/DashboardCards";
 import { useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   
   const navigate=useNavigate();
   useEffect(() => {
+    props.stopLoading();
     if(!localStorage.getItem("email")){
       
       navigate("/Login")
@@ -23,7 +24,7 @@ const Dashboard = () => {
 
   return (
     <div className="pagebg">
-      <Sidebar>
+      <Sidebar startLoading={props.startLoading}>
         <DashboardCards >
           <h1 className="pagebg">Dashboard page</h1>
         </DashboardCards>

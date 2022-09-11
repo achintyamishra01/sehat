@@ -29,6 +29,8 @@ router.post("/signin", async (req, res) => {
 
 router.post("/addGraph", (req, res) => {
   var blood = req.body.blood;
+  var systolic = req.body.systolic;
+  var diastolic = req.body.diastolic;
   var date = req.body.date;
   var sugar = req.body.sugar;
   var emailFinding = req.body.email;
@@ -39,7 +41,7 @@ router.post("/addGraph", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        item.dataset.push({ blood: blood, date: date, sugar: sugar });
+        item.dataset.push({ blood: blood, date: date, sugar: sugar,systolic:systolic,diastolic:diastolic });
         await item.save();
         res.status(200).json({ success: true });
       }
@@ -67,9 +69,7 @@ router.post("/register", async (req, res) => {
     // await person.save();
     return res.status(200).json({ success: true });
   } else {
-    return res
-      .status(200)
-      .json({ success: false, error: "username already exist" });
+    return res.status(200) .json({ success: false, error: "username already exist" });
     // res.send(aadmi);
   }
 });

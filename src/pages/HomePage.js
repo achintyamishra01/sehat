@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Cards from "../Components/Cards";
 import { Link } from "react-router-dom";
 import Testimonials from "../Components/Testimonials";
 import logo from "../images/Healthtrack logo.png";
+import responsive_img from "../images/resp_im.png";
 import assistant from "../images/meet the assistant photo.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,7 +11,11 @@ import "react-toastify/dist/ReactToastify.css";
 import "../CSS/Header.css";
 import { HashLink } from "react-router-hash-link";
 
-function HomePage() {
+function HomePage(props) {
+  useEffect(() => {
+    props.stopLoading();
+  }, [])
+  
   const Logout = () => {
     localStorage.removeItem("email");
     toast.success("Logging out..", {
@@ -71,24 +76,24 @@ function HomePage() {
                   About Us
                 </HashLink>
               </li>
-              <li>
+              <li id="spna">
                 <span id="sepnav">|</span>
               </li>
 
               {!localStorage.getItem("email") ? (
                 <li>
-                  <Link className="nav-link" to={"/Sign"}>
+                  <Link className="nav-link" to={"/Signup"}>
                     <button
                       type="button"
                       className="btn btn-primary btn-sm"
-                      id="sup"
+                      id="sup" onClick={() => props.startLoading()}
                     >
                       Sign Up
                     </button>
                   </Link>
                 </li>
               ) : (
-                <Link className="nav-link" to={"/Dashboard"}>
+                <Link className="nav-link" to={"/Dashboard"} onClick={() => props.startLoading()}>
                   Dashboard
                 </Link>
               )}
@@ -103,7 +108,7 @@ function HomePage() {
                     background: "#8ab4f8",
                     color: "black",
                     borderColor: "aliceblue",
-                  }}
+                  }} 
                 >
                   Sign out
                 </button>
@@ -112,7 +117,7 @@ function HomePage() {
                   <button
                     type="button"
                     className="btn btn-primary btn-sm"
-                    id="sin"
+                    id="sin" onClick={() => props.startLoading()}
                   >
                     Sign in
                   </button>
@@ -128,6 +133,9 @@ function HomePage() {
           </div>
           <img src={assistant} className="img-fluid" alt="" width={800}></img>
         </div>
+        <section id="respimg">
+          <img src={responsive_img} alt="" id="reim" />
+        </section>
         <br />
         <br />
         <br />

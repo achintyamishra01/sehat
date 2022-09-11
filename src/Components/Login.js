@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "../CSS/Login.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,7 +8,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/Healthtrack logo.png";
 
-export default function Login() {
+export default function Login(props) {
+
+  useEffect(() => {
+    props.stopLoading();
+  }, [])
+  
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -55,7 +60,9 @@ export default function Login() {
         progress: undefined,
       });
       setTimeout(() => {
-        navigate("/Dashboard");
+        let url = "http://localhost:3000/Dashboard";
+      window.location.href = url;
+        // navigate("/Dashboard");
       }, 3000);
 
       // alert("Sign In Completed");

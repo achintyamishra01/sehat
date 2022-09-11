@@ -18,7 +18,10 @@ const GraphSchema = new mongoose.Schema({
             sugar:{
                 type:Number
             },
-            blood:{
+            systolic:{
+                type:Number
+            },
+            diastolic:{
                 type:Number
             },
             date:{

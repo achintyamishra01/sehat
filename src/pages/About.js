@@ -5,9 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-const About = () => {
+const About = (props) => {
   const navigate = useNavigate();
   useEffect(() => {
+    props.stopLoading()
     if (!localStorage.getItem("email")) {
       navigate("/Login");
       return;
@@ -15,15 +16,22 @@ const About = () => {
 
     // eslint-disable-next-line
   }, []);
-  const [blood, setblood] = useState("");
+  
+  const [systolic, setsystolic] = useState("");
+  const [diastolic, setdiastolic]= useState("");
   const [sugar, setsugar] = useState("");
   const handleChange = (e) => {
-    if (e.target.name === "blood") {
-      setblood(e.target.value);
-    }
+    
     if (e.target.name === "sugar") {
       setsugar(e.target.value);
     }
+    if (e.target.name === "systolic") {
+      setsystolic(e.target.value);
+    }
+    if (e.target.name === "diastolic") {
+      setdiastolic(e.target.value);
+    }
+
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +39,7 @@ const About = () => {
     const d = new Date();
     const date = d.toDateString();
     const email = localStorage.getItem("email");
-    const data = { blood, sugar, date, email };
+    const data = { sugar, date, email ,systolic,diastolic};
     const res = await fetch("/api/addGraph", {
       method: "POST",
       headers: {
@@ -62,7 +70,9 @@ const About = () => {
         draggable: true,
         progress: undefined,
       });
-      setblood("");
+      setdiastolic("");
+      setsystolic("");
+      
       setsugar("");
     }
   };
@@ -83,23 +93,38 @@ const About = () => {
         <Sidebar>
           <h1 className="pagebg">About page</h1>
           <form>
+            
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Systolic Blood Pressure(mmHg)
               </label>
               <input
                 type="number"
-                value={blood}
+                value={systolic}
                 onChange={handleChange}
                 className="form-control"
-                name="blood"
-                id="blood"
+                name="systolic"
+                id="systolic"
                 aria-describedby="emailHelp"
               />
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Diastolic Blood Pressure(mmHg)
+              </label>
+              <input
+                type="number"
+                value={diastolic}
+                onChange={handleChange}
+                className="form-control"
+                name="diastolic"
+                id="diastolic"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">
+                Glucose
               </label>
               <input
                 type="number"

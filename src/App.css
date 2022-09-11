@@ -108,6 +108,9 @@
     flex-basis: 38%;
     /* display: block; */
   }
+  #spna {
+    display: none;
+  }
 }
 .card-txt {
   margin: auto;
@@ -254,12 +257,28 @@ carousel-item.active {
 .FootLI:hover {
   color: rgb(255, 234, 0);
 }
-@media (max-width: 998px) {
+#respimg {
+  display: none;
+}
+@media (max-width: 798px) {
   .FootUL {
     /* flex-direction: column; */
     flex-basis: 10%;
   }
   .FootUL li {
     padding: 5px;
+  }
+  #dc {
+    display: none;
+  }
+  #respimg {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100vw;
+  }
+  #reim {
+    width: 100vw;
   }
 }

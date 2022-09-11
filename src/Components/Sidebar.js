@@ -12,9 +12,9 @@ import {
   FaShoppingBag,
   FaSignOutAlt,
 } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Sidebar = ({ children }) => {
+const Sidebar = ({ children,props }) => {
   const navigate=useNavigate();
   const Logout=()=>{
     toast.success('Logging out..', {
@@ -86,11 +86,12 @@ const Sidebar = ({ children }) => {
           </div>
         </div>
         {menuItem.map((item, index) => (
-          <NavLink
+          <Link
             to={item.path}
             key={index}
             className="link"
-            activeclassname="active"
+            activeclassname="active" 
+            onClick={()=>props.startLoading()}
           >
             <div className="icon">{item.icon}</div>
             <div
@@ -99,7 +100,7 @@ const Sidebar = ({ children }) => {
             >
               {item.name}
             </div>
-          </NavLink>
+          </Link>
         ))}
         
         {/* when sidebar is opening icon and signout are not together */}
