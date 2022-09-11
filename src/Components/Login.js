@@ -139,7 +139,7 @@ export default function Login(props) {
             </button>
             <br />
             <br />
-            <a className="w-100 btn btn-lg btn-dark" href="/Sign">
+            <a className="w-100 btn btn-lg btn-dark" href="/Signup">
               Sign Up
             </a>
             <p className="mt-5 mb-3 text-muted">&copy;2022</p>
