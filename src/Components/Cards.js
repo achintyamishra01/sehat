@@ -6,7 +6,7 @@ export default function Cards() {
       <br />
       <br />
       <div className="container-card">
-        <div className="contacts"   >
+        <div className="contacts">
           <div className="contact-card">
             <img src={require("../images/Feat1.png")} alt="" />
             <h3 className="card-txt">
@@ -17,6 +17,12 @@ export default function Cards() {
             </h3>
             <br />
             <br />
+            <div className="contact-overview">
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              Lorem isp dorel consdet sit do tmp.
+            </span>
+            </div>
           </div>
 
           <div className="contact-card">
@@ -30,6 +36,12 @@ export default function Cards() {
             </h3>
             <br />
             <br />
+            <div className="contact-overview">
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              Lorem isp dorel consdet sit do tmp.
+            </span>
+            </div>
           </div>
 
           <div className="contact-card">
@@ -43,6 +55,12 @@ export default function Cards() {
             </h3>
             <br />
             <br />
+            <div className="contact-overview">
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              Lorem isp dorel consdet sit do tmp.
+            </span>
+            </div>
           </div>
 
           <div className="contact-card">
@@ -54,6 +72,12 @@ export default function Cards() {
               <br />
               <br />
             </h3>
+            <div className="contact-overview">
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              Lorem isp dorel consdet sit do tmp.
+            </span>
+            </div>
           </div>
         </div>
       </div>

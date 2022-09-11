@@ -33,6 +33,25 @@
   background-color: whitesmoke;
 }
 
+/* Homepage cards */
+.contact-overview {
+  background-color: #6391e8;
+  color: #fff;
+  max-height: 100%;
+  overflow: auto;
+  padding: 1rem;
+  position:absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-card:hover .contact-overview {
+  transform: translateY(0%);
+}
+
 .contacts {
   display: flex;
   justify-content: center;
@@ -41,6 +60,9 @@
 }
 
 .contact-card {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
   flex-basis: 225px;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -63,6 +85,9 @@
   font-weight: 700;
   font-size: 18px;
 }
+
+/* break */
+
 .info-group {
   display: flex;
   align-items: center;
