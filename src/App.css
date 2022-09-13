@@ -40,7 +40,7 @@
   max-height: 100%;
   overflow: auto;
   padding: 1rem;
-  position:absolute;
+  position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
@@ -225,7 +225,6 @@ carousel-item.active {
   justify-content: center;
   flex-wrap: wrap;
   width: 85vw;
-  background-color: #7378fd;
 }
 
 .name-container > p {
@@ -281,4 +280,28 @@ carousel-item.active {
   #reim {
     width: 100vw;
   }
+}
+#dbcont {
+  background: rgba(98, 131, 239, 0.2);
+  box-shadow: 0 6px 16px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+#bpdisp {
+  background: rgba(243, 244, 248, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+#sugdisp {
+  background: rgba(243, 244, 248, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
