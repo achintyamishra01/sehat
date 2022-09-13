@@ -125,44 +125,44 @@ const Analytics = (props) => {
     // eslint-disable-next-line
   }, []);
   return (
-    <>
+    <div>
     <div className="pagebg">
       <Sidebar>
         <h1 className="pagebg">Analytics page</h1>
-        <div>
+        <div style={{display:"flex"}} >
           <div className="container-fluid">
             <div className="row">
               <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <canvas
                   className="my-4 w-100"
-                  id="chart"
-                  width="900"
-                  height="380"
+                  id="chart" style={{width:"100%",maxWidth:"700px"}}
+            
                 ></canvas>
               </main>
             </div>
           </div>
-        </div>
-      </Sidebar>
-    </div>
-     
-       
-       <div>
+        
+        
          <div className="container-fluid">
            <div className="row">
              <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                <canvas
                  className="my-4 w-100"
                  id="chart1"
-                 width="900"
-                 height="380"
+                 
                ></canvas>
              </main>
            </div>
          </div>
        </div>
+      
+      </Sidebar>
+    </div>
+     
+       
+     
     
-   </>
+   </div>
   );
 };
 
