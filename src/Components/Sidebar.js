@@ -106,13 +106,14 @@ const Sidebar = ({ children, props }) => {
           ))}
 
           {/* when sidebar is opening icon and signout are not together */}
-          <div
-            className="icon link"
-            style={{ display: isOpen ? "block" : "none", height: "80px" }}
-          >
+          <span className="icon link">
             {<FaSignOutAlt onClick={Logout} style={{ cursor: "pointer" }} />}
-            &nbsp;&nbsp;Sign-out
-          </div>
+            <span
+              style={{ display: isOpen ? "block" : "none", height: "80px" }}
+            >
+              Logout
+            </span>
+          </span>
         </div>
         <main>{children}</main>
       </div>
