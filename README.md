@@ -1,3 +1,3 @@
 # Sehat Website
 
-This website provides health related test results and generates a graphical trend from the data provide by the user. It allows user to regularly update his health checkup data and visit doctor with all records in the electronic form. Also this removes the hassle of patients to carry his/her reports hard copy everywhere.
+This website records and maintains health related test results of a user and generates a graphical trend from it. It allows the user to regularly update his health checkup data and visit the doctor with all records in the electronic form, which helps to remove the hassle of patients to carry their report's hard copy everywhere.
